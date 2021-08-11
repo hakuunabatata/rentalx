@@ -1,6 +1,6 @@
 import { v4 as uuid } from 'uuid'
 
-import { ICreateSpecificationDTO } from '../repositories/ISpecificationRepository'
+import { ICreateSpecificationDTO } from '../repositories/ISpecificationsRepository'
 
 class Specification {
   id?: string
