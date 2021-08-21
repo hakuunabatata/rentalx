@@ -6,6 +6,8 @@ import swaggerFile from './swagger.json'
 
 const app = express()
 
+console.log('🚀 Starting server ...')
+
 app.use(express.json())
 
 app.use('/docs', swaggerUiExpress.serve, swaggerUiExpress.setup(swaggerFile))
