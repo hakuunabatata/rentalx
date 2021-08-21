@@ -1,11 +1,11 @@
+import 'reflect-metadata'
+import './database'
+
 import express from 'express'
 import swaggerUiExpress from 'swagger-ui-express'
 
 import { router } from './routes'
 import swaggerFile from './swagger.json'
-
-import 'reflect-metadata'
-import './database'
 
 const app = express()
 
