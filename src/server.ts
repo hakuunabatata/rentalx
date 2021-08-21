@@ -1,5 +1,6 @@
 import 'reflect-metadata'
 import './database'
+import './shared/container'
 
 import express from 'express'
 import swaggerUiExpress from 'swagger-ui-express'
