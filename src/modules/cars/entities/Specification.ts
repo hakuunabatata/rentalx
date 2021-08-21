@@ -1,19 +1,22 @@
+import { Column, CreateDateColumn, Entity, PrimaryColumn } from 'typeorm'
 import { v4 as uuid } from 'uuid'
 
-import { ICreateSpecificationDTO } from '../repositories/ISpecificationsRepository'
-
+@Entity('specifications')
 class Specification {
+  @PrimaryColumn()
   id?: string
+
+  @Column()
   name: string
+
+  @Column()
   description: string
+
+  @CreateDateColumn()
   created_at?: Date
 
-  constructor({ name, description }: ICreateSpecificationDTO) {
+  constructor() {
     if (!this.id) this.id = uuid()
-
-    this.created_at = new Date()
-    this.name = name
-    this.description = description
   }
 }
 
