@@ -1,4 +1,4 @@
-import { ICreateUserDTO } from '..'
+import { ICreateUserDTO } from '@modules'
 
 interface IUsersRepository {
   create(data: ICreateUserDTO): Promise<void>

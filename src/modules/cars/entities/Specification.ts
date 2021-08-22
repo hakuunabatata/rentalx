@@ -2,7 +2,7 @@ import { Column, CreateDateColumn, Entity, PrimaryColumn } from 'typeorm'
 import { v4 as uuid } from 'uuid'
 
 @Entity('specifications')
-class Specification {
+export class Specification {
   @PrimaryColumn()
   id?: string
 
@@ -19,5 +19,3 @@ class Specification {
     if (!this.id) this.id = uuid()
   }
 }
-
-export { Specification }

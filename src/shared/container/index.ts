@@ -7,7 +7,7 @@ import {
   IUsersRepository,
   SpecificationsRepository,
   UsersRepository,
-} from '../../modules'
+} from '@modules'
 
 container.registerSingleton<ICategoriesRepository>(
   'CategoryRepository',

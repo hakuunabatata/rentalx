@@ -1,6 +1,6 @@
 import { getRepository, Repository } from 'typeorm'
 
-import { ICreateUserDTO, IUsersRepository, User } from '../..'
+import { ICreateUserDTO, IUsersRepository, User } from '@modules'
 
 export class UsersRepository implements IUsersRepository {
   private repository: Repository<User>
