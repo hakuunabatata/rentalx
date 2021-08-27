@@ -1,1 +1,1 @@
-export * from './CategoriesRepositoryTest'
+export * from './Categories.test.repository'
