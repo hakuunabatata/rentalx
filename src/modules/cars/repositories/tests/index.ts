@@ -1,1 +1,2 @@
-export * from './Categories.test.repository'
+export * from './CarsTest.repository'
+export * from './CategoriesTest.repository'

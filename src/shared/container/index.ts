@@ -5,6 +5,8 @@ import {
   ICategoriesRepository,
   ISpecificationsRepository,
   IUsersRepository,
+  ICarsRepository,
+  CarsRepository,
   SpecificationsRepository,
   UsersRepository,
 } from '@modules'
@@ -23,3 +25,5 @@ container.registerSingleton<IUsersRepository>(
   'UsersRepository',
   UsersRepository
 )
+
+container.registerSingleton<ICarsRepository>('CarsRepository', CarsRepository)
