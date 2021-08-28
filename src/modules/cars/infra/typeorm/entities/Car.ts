@@ -7,7 +7,7 @@ import {
   PrimaryColumn,
 } from 'typeorm'
 import { v4 as uuid } from 'uuid'
-import { Category } from '@modules'
+import { Category } from '.'
 
 @Entity('cars')
 export class Car {

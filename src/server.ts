@@ -5,12 +5,14 @@ import 'express-async-errors'
 import 'reflect-metadata'
 
 import '@shared/container'
-import '@shared/infra/typeorm'
+import createConnection from '@shared/infra/typeorm'
 
 import { router } from '@shared/infra/http/routes'
 import { AppError } from '@shared'
 
 import swaggerFile from './swagger.json'
+
+createConnection()
 
 const app = express()
 
