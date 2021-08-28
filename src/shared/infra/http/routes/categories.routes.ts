@@ -6,6 +6,7 @@ import {
   ImportCategoryController,
   ListCategoriesController,
 } from '@modules'
+import { ensureAdmin, ensureAuthenticated } from '@shared'
 
 const categoryRoutes = Router()
 
@@ -17,13 +18,20 @@ const createCategoryController = new CreateCategoryController()
 const importCategoryController = new ImportCategoryController()
 const listCategoriesController = new ListCategoriesController()
 
-categoryRoutes.post('/', createCategoryController.handle)
+categoryRoutes.post(
+  '/',
+  ensureAuthenticated,
+  ensureAdmin,
+  createCategoryController.handle
+)
 
 categoryRoutes.get('/', listCategoriesController.handle)
 
 categoryRoutes.post(
   '/import',
   upload.single('file'),
+  ensureAuthenticated,
+  ensureAdmin,
   importCategoryController.handle
 )
 
