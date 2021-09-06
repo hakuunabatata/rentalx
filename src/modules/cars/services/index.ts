@@ -1,4 +1,5 @@
 export * from './createCar'
+export * from './createCarSpecification'
 export * from './createCategory'
 export * from './createSpecification'
 export * from './importCategory'

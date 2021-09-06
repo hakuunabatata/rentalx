@@ -1,8 +1,11 @@
+import { Specification } from '@modules'
 import {
   Column,
   CreateDateColumn,
   Entity,
   JoinColumn,
+  JoinTable,
+  ManyToMany,
   ManyToOne,
   PrimaryColumn,
 } from 'typeorm'
@@ -44,6 +47,14 @@ export class Car {
 
   @CreateDateColumn()
   created_at?: Date
+
+  @ManyToMany(() => Specification)
+  @JoinTable({
+    name: 'specifications_cars',
+    joinColumns: [{ name: 'car_id' }],
+    inverseJoinColumns: [{ name: 'specification_id' }],
+  })
+  specifications: Specification[]
 
   constructor() {
     if (!this.id) this.id = uuid()

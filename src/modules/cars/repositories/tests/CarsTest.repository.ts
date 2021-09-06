@@ -30,4 +30,8 @@ export class CarsRepositoryTest implements ICarsRepository {
         (category_id && car.category_id === category_id)
     )
   }
+
+  async findById(id: string): Promise<Car> {
+    return this.cars.find((car) => car.id === id)
+  }
 }
