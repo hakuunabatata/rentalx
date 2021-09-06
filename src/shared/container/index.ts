@@ -9,7 +9,9 @@ import {
   CarsRepository,
   SpecificationsRepository,
   UsersRepository,
+  ICarImagesRepository,
 } from '@modules'
+import { CarImagesRepository } from '@modules/cars/infra/typeorm/repositories/CarImages.repository'
 
 container.registerSingleton<ICategoriesRepository>(
   'CategoryRepository',
@@ -27,3 +29,8 @@ container.registerSingleton<IUsersRepository>(
 )
 
 container.registerSingleton<ICarsRepository>('CarsRepository', CarsRepository)
+
+container.registerSingleton<ICarImagesRepository>(
+  'CarImagesRepository',
+  CarImagesRepository
+)

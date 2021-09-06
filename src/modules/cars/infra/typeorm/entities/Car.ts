@@ -1,4 +1,3 @@
-import { Specification } from '@modules'
 import {
   Column,
   CreateDateColumn,
@@ -10,7 +9,7 @@ import {
   PrimaryColumn,
 } from 'typeorm'
 import { v4 as uuid } from 'uuid'
-import { Category } from '.'
+import { Category, Specification } from '.'
 
 @Entity('cars')
 export class Car {
