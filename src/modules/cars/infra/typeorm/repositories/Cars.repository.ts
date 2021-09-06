@@ -37,4 +37,26 @@ export class CarsRepository implements ICarsRepository {
       license_plate,
     })
   }
+
+  async findAvailable(
+    brand?: string,
+    category_id?: string,
+    name?: string
+  ): Promise<Car[]> {
+    const query = await this.repository
+      .createQueryBuilder('c')
+      .where('available = :available', { available: true })
+
+    if (brand) {
+      query.andWhere('c.brand = :brand', { brand })
+    }
+    if (name) {
+      query.andWhere('c.name = :name', { name })
+    }
+    if (category_id) {
+      query.andWhere('c.category_id = :category_id', { category_id })
+    }
+
+    return query.getMany()
+  }
 }
