@@ -1,8 +1,11 @@
 import { ICreateRentalDTO, IRentalsRepository, Rental } from '@modules'
-import { AppError } from '@shared'
+import { AppError, IDateProvider } from '@shared'
 
 export class CreateRentalService {
-  constructor(private rentalsRepository: IRentalsRepository) {}
+  constructor(
+    private rentalsRepository: IRentalsRepository,
+    private dateProvider: IDateProvider
+  ) {}
 
   async execute({
     user_id,
@@ -18,6 +21,10 @@ export class CreateRentalService {
     )
 
     if (userRental) throw new AppError('User already has a car rented.')
+
+    const compare = this.dateProvider.compareInHours(expected_return_date)
+
+    if (compare < 24) throw new AppError('Invalid return time')
 
     const rental = await this.rentalsRepository.create({
       user_id,
