@@ -1,11 +1,11 @@
 import dayjs from 'dayjs'
 import utc from 'dayjs/plugin/utc'
 
-import { IDateProvider } from '@shared'
+import { IDateProvider } from '..'
 
 dayjs.extend(utc)
 
-export class DateProvider implements IDateProvider {
+export class DayJSDateProvider implements IDateProvider {
   convertToUTC = (date: Date): string => dayjs(date).utc().local().format()
 
   compareInHours = (date1: Date, date2: Date = this.dateNow()): number =>

@@ -1,9 +1,13 @@
 import { ICreateRentalDTO, IRentalsRepository, Rental } from '@modules'
 import { AppError, IDateProvider } from '@shared'
+import { inject, injectable } from 'tsyringe'
 
+@injectable()
 export class CreateRentalService {
   constructor(
+    @inject('RentalsRepository')
     private rentalsRepository: IRentalsRepository,
+    @inject('DateProvider')
     private dateProvider: IDateProvider
   ) {}
 

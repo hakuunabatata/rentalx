@@ -1,1 +1,1 @@
-export * from './DateProvider'
+export * from './DayJSDateProvider'

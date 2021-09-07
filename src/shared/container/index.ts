@@ -1,17 +1,19 @@
-import { container } from 'tsyringe'
-
 import {
+  CarImagesRepository,
+  CarsRepository,
   CategoryRepository,
+  ICarImagesRepository,
+  ICarsRepository,
   ICategoriesRepository,
+  IRentalsRepository,
   ISpecificationsRepository,
   IUsersRepository,
-  ICarsRepository,
-  CarsRepository,
+  RentalsRepository,
   SpecificationsRepository,
   UsersRepository,
-  ICarImagesRepository,
 } from '@modules'
-import { CarImagesRepository } from '@modules/cars/infra/typeorm/repositories/CarImages.repository'
+import { container } from 'tsyringe'
+import { DayJSDateProvider, IDateProvider } from '@shared'
 
 container.registerSingleton<ICategoriesRepository>(
   'CategoryRepository',
@@ -34,3 +36,10 @@ container.registerSingleton<ICarImagesRepository>(
   'CarImagesRepository',
   CarImagesRepository
 )
+
+container.registerSingleton<IRentalsRepository>(
+  'RentalsRepository',
+  RentalsRepository
+)
+
+container.registerSingleton<IDateProvider>('DateProvider', DayJSDateProvider)
