@@ -8,6 +8,7 @@ export default {
   moduleNameMapper: {
     '@modules(.*)': '<rootDir>/src/modules/$1',
     '@shared(.*)': '<rootDir>/src/shared/$1',
+    '@app': '<rootDir>/src/app',
   },
 
   preset: 'ts-jest',

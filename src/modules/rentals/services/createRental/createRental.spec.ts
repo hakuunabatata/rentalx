@@ -1,17 +1,17 @@
 import { CreateRentalService, RentalsRepositoryTest } from '@modules'
-import { AppError, DateProvider } from '@shared'
+import { AppError, DayJSDateProvider } from '@shared'
 import dayjs from 'dayjs'
 
 let createRentalService: CreateRentalService
 let rentalsRepository: RentalsRepositoryTest
-let dateProvider: DateProvider
+let dateProvider: DayJSDateProvider
 
 describe('Create Rental', () => {
   const tomorrow = dayjs().add(1, 'day').toDate()
 
   beforeEach(() => {
     rentalsRepository = new RentalsRepositoryTest()
-    dateProvider = new DateProvider()
+    dateProvider = new DayJSDateProvider()
     createRentalService = new CreateRentalService(
       rentalsRepository,
       dateProvider
