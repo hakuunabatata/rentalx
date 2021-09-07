@@ -49,5 +49,6 @@ describe('ListCategoryController', () => {
 
     expect(res.status).toBe(200)
     expect(res.body.length).toBe(1)
+    expect(res.body[0]).toHaveProperty('id')
   })
 })
